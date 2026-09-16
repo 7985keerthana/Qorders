@@ -41,7 +41,7 @@ export default function ChangePasswordPage({ onBack }) {
   }
 
   return (
-    <div className="relative w-full max-w-md bg-white min-h-screen sm:min-h-[750px] sm:h-[812px] sm:rounded-[36px] sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden">
+    <div className="relative w-full max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl bg-white min-h-screen sm:min-h-0 sm:max-h-[90vh] sm:rounded-3xl sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden transition-all duration-300">
       
       {/* Toast Notification */}
       {toast.show && (
@@ -52,7 +52,7 @@ export default function ChangePasswordPage({ onBack }) {
       )}
 
       {/* Top Header */}
-      <div className="px-5 pt-5 pb-3 flex items-center gap-3">
+      <div className="px-5 pt-5 pb-3 md:px-8 md:pt-6 flex items-center gap-3 border-b border-gray-100/80">
         <button
           onClick={onBack}
           className="p-1 rounded-full text-gray-800 hover:bg-gray-100 transition-colors cursor-pointer"
@@ -64,13 +64,13 @@ export default function ChangePasswordPage({ onBack }) {
       </div>
 
       {/* Content Form Body */}
-      <form onSubmit={handleSubmit} className="px-5 py-4 flex flex-col flex-1 justify-between no-scrollbar overflow-y-auto pb-8">
+      <form onSubmit={handleSubmit} className="px-5 py-5 md:px-8 md:py-6 flex flex-col flex-1 justify-between no-scrollbar overflow-y-auto pb-8">
         
-        {/* Input Fields */}
-        <div className="space-y-5">
+        {/* Input Fields Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           
-          {/* Current Password */}
-          <div>
+          {/* Current Password (Spans 2 columns on desktop) */}
+          <div className="md:col-span-2">
             <label className="block text-xs font-bold text-gray-900 mb-1.5">
               Current Password
             </label>

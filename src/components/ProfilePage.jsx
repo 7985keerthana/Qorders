@@ -109,7 +109,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 sm:py-8 flex justify-center items-start relative font-sans">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center sm:py-6 sm:px-4 relative font-sans">
       
       {/* Toast Notification */}
       {toast.show && (
@@ -182,10 +182,10 @@ export default function ProfilePage() {
         <TermsPage onBack={() => setCurrentView('main')} title="Privacy Policy" />
       ) : (
         /* Main Responsive Container */
-        <div className="w-full max-w-md bg-white min-h-screen sm:min-h-[750px] sm:h-[812px] sm:rounded-[36px] sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden">
+        <div className="w-full max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl bg-white min-h-screen sm:min-h-0 sm:max-h-[90vh] sm:rounded-3xl sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden transition-all duration-300">
           
           {/* Top Header */}
-          <div className="px-5 pt-5 pb-3 flex items-center gap-3">
+          <div className="px-5 pt-5 pb-3 md:px-8 md:pt-6 flex items-center gap-3 border-b border-gray-100/80">
             <button className="p-1 rounded-full text-gray-800 hover:bg-gray-100 transition-colors">
               <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
             </button>
@@ -193,70 +193,75 @@ export default function ProfilePage() {
           </div>
 
           {/* Content Body */}
-          <div className="px-5 pb-8 space-y-5 overflow-y-auto no-scrollbar flex-1">
+          <div className="px-5 py-5 md:px-8 md:py-6 space-y-6 overflow-y-auto no-scrollbar flex-1">
 
             {/* Profile Header Card -> Navigates to Edit Profile Page on Click */}
             <div
               onClick={() => setCurrentView('edit')}
-              className="bg-[#F1F1F1] rounded-2xl p-4 flex items-center justify-between shadow-xs hover:shadow-md transition-all cursor-pointer group"
+              className="bg-[#F1F1F1] rounded-2xl p-4 md:p-5 flex items-center justify-between shadow-xs hover:shadow-md transition-all cursor-pointer group"
             >
               <div className="flex items-center gap-3.5">
                 <div className="w-12 h-12 rounded-full border-2 border-[#FA6200] bg-[#FA6200]/15 flex items-center justify-center text-[#FA6200] font-bold text-lg shadow-xs">
                   KP
                 </div>
-                <span className="font-bold text-gray-900 text-base">Kartik Patel</span>
+                <span className="font-bold text-gray-900 text-base md:text-lg">Kartik Patel</span>
               </div>
               <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-colors" />
             </div>
 
-            {/* Accounts Section */}
-            <div>
-              <h2 className="text-sm font-semibold text-gray-700 mb-2 px-1">Accounts</h2>
-              <div className="bg-[#F1F1F1] rounded-2xl px-4 py-1 flex flex-col">
-                {accountsList.map((item) => (
-                  <div
-                    key={item.id}
-                    onClick={() => handleItemClick(item.title)}
-                    className="flex items-center gap-3.5 group cursor-pointer hover:opacity-90 transition-opacity"
-                  >
-                    {/* Icon with 15% opacity background tint */}
-                    <div className="w-9 h-9 rounded-full bg-[#FA6200]/15 flex items-center justify-center p-2 shrink-0 my-2">
-                      <img src={item.icon} alt={item.title} className="w-5 h-5 object-contain" />
-                    </div>
-                    
-                    {/* Text & Darker Border starting right after icon */}
-                    <div className="flex-1 flex items-center justify-between py-3.5 border-b border-gray-300 group-last:border-b-0">
-                      <span className="text-sm font-medium text-gray-800">{item.title}</span>
-                      <ChevronRight className="w-4 h-4 text-white group-hover:text-white transition-colors" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* Grid Layout for Accounts & More Sections on Desktop */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-            {/* More Section */}
-            <div>
-              <h2 className="text-sm font-semibold text-gray-700 mb-2 px-1">More</h2>
-              <div className="bg-[#F1F1F1] rounded-2xl px-4 py-1 flex flex-col">
-                {moreList.map((item) => (
-                  <div
-                    key={item.id}
-                    onClick={() => handleItemClick(item.title)}
-                    className="flex items-center gap-3.5 group cursor-pointer hover:opacity-90 transition-opacity"
-                  >
-                    {/* Icon with 15% opacity background tint */}
-                    <div className="w-9 h-9 rounded-full bg-[#FA6200]/15 flex items-center justify-center p-2 shrink-0 my-2">
-                      <img src={item.icon} alt={item.title} className="w-5 h-5 object-contain" />
+              {/* Accounts Section */}
+              <div>
+                <h2 className="text-sm font-semibold text-gray-700 mb-2 px-1">Accounts</h2>
+                <div className="bg-[#F1F1F1] rounded-2xl px-4 py-1 flex flex-col">
+                  {accountsList.map((item) => (
+                    <div
+                      key={item.id}
+                      onClick={() => handleItemClick(item.title)}
+                      className="flex items-center gap-3.5 group cursor-pointer hover:opacity-90 transition-opacity"
+                    >
+                      {/* Icon with 15% opacity background tint */}
+                      <div className="w-9 h-9 rounded-full bg-[#FA6200]/15 flex items-center justify-center p-2 shrink-0 my-2">
+                        <img src={item.icon} alt={item.title} className="w-5 h-5 object-contain" />
+                      </div>
+                      
+                      {/* Text & Darker Border starting right after icon */}
+                      <div className="flex-1 flex items-center justify-between py-3.5 border-b border-gray-300 group-last:border-b-0">
+                        <span className="text-sm font-medium text-gray-800">{item.title}</span>
+                        <ChevronRight className="w-4 h-4 text-white group-hover:text-white transition-colors" />
+                      </div>
                     </div>
-
-                    {/* Text & Darker Border starting right after icon */}
-                    <div className="flex-1 flex items-center justify-between py-3.5 border-b border-gray-300 group-last:border-b-0">
-                      <span className="text-sm font-medium text-gray-800">{item.title}</span>
-                      <ChevronRight className="w-4 h-4 text-white group-hover:text-white transition-colors" />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+
+              {/* More Section */}
+              <div>
+                <h2 className="text-sm font-semibold text-gray-700 mb-2 px-1">More</h2>
+                <div className="bg-[#F1F1F1] rounded-2xl px-4 py-1 flex flex-col">
+                  {moreList.map((item) => (
+                    <div
+                      key={item.id}
+                      onClick={() => handleItemClick(item.title)}
+                      className="flex items-center gap-3.5 group cursor-pointer hover:opacity-90 transition-opacity"
+                    >
+                      {/* Icon with 15% opacity background tint */}
+                      <div className="w-9 h-9 rounded-full bg-[#FA6200]/15 flex items-center justify-center p-2 shrink-0 my-2">
+                        <img src={item.icon} alt={item.title} className="w-5 h-5 object-contain" />
+                      </div>
+
+                      {/* Text & Darker Border starting right after icon */}
+                      <div className="flex-1 flex items-center justify-between py-3.5 border-b border-gray-300 group-last:border-b-0">
+                        <span className="text-sm font-medium text-gray-800">{item.title}</span>
+                        <ChevronRight className="w-4 h-4 text-white group-hover:text-white transition-colors" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
 
           </div>

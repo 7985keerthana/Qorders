@@ -48,10 +48,10 @@ const termsData = [
 
 export default function TermsPage({ onBack, title = 'Term & Condition' }) {
   return (
-    <div className="relative w-full max-w-md bg-white min-h-screen sm:min-h-[750px] sm:h-[812px] sm:rounded-[36px] sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden">
+    <div className="relative w-full max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl bg-white min-h-screen sm:min-h-0 sm:max-h-[90vh] sm:rounded-3xl sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden transition-all duration-300">
       
       {/* Top Header */}
-      <div className="px-5 pt-5 pb-3 flex items-center gap-3">
+      <div className="px-5 pt-5 pb-3 md:px-8 md:pt-6 flex items-center gap-3 border-b border-gray-100/80">
         <button
           onClick={onBack}
           className="p-1 rounded-full text-gray-800 hover:bg-gray-100 transition-colors cursor-pointer"
@@ -63,11 +63,11 @@ export default function TermsPage({ onBack, title = 'Term & Condition' }) {
       </div>
 
       {/* Terms List Content */}
-      <div className="px-5 py-4 space-y-5 overflow-y-auto no-scrollbar flex-1 pb-8">
+      <div className="px-5 py-5 md:px-8 md:py-6 space-y-5 overflow-y-auto no-scrollbar flex-1 pb-8">
         {termsData.map((item) => (
-          <div key={item.id} className="space-y-1">
+          <div key={item.id} className="space-y-1 bg-gray-50/50 p-4 rounded-xl border border-gray-100/80">
             <h2 className="text-sm font-semibold text-gray-900">{item.title}</h2>
-            <p className="text-xs text-gray-400 leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-gray-500 leading-relaxed font-normal">
               {item.content}
             </p>
           </div>

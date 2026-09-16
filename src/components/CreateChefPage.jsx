@@ -38,7 +38,7 @@ export default function CreateChefPage({ onBack, onSave }) {
   }
 
   return (
-    <div className="relative w-full max-w-md bg-white min-h-screen sm:min-h-[750px] sm:h-[812px] sm:rounded-[36px] sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden">
+    <div className="relative w-full max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl bg-white min-h-screen sm:min-h-0 sm:max-h-[90vh] sm:rounded-3xl sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden transition-all duration-300">
       
       {/* Toast Notification (Toastify effect) */}
       {toast.show && (
@@ -49,7 +49,7 @@ export default function CreateChefPage({ onBack, onSave }) {
       )}
 
       {/* Top Header */}
-      <div className="px-5 pt-5 pb-3 flex items-center gap-3">
+      <div className="px-5 pt-5 pb-3 md:px-8 md:pt-6 flex items-center gap-3 border-b border-gray-100/80">
         <button
           onClick={onBack}
           className="p-1 rounded-full text-gray-800 hover:bg-gray-100 transition-colors cursor-pointer"
@@ -61,10 +61,10 @@ export default function CreateChefPage({ onBack, onSave }) {
       </div>
 
       {/* Form Content Body */}
-      <form onSubmit={handleSubmit} className="px-5 pb-8 space-y-4 overflow-y-auto no-scrollbar flex-1">
+      <form onSubmit={handleSubmit} className="px-5 py-5 md:px-8 md:py-6 space-y-4 overflow-y-auto no-scrollbar flex-1">
         
         {/* Avatar Section */}
-        <div className="flex justify-center my-4">
+        <div className="flex justify-center my-2 md:my-4">
           <div className="relative">
             <div className="w-24 h-24 rounded-full border-2 border-[#FA6200] bg-[#FA6200]/15 flex items-center justify-center text-[#FA6200] font-bold text-2xl shadow-xs">
               KP
@@ -78,102 +78,107 @@ export default function CreateChefPage({ onBack, onSave }) {
           </div>
         </div>
 
-        {/* First Name */}
-        <div>
-          <label className="block text-xs font-bold text-gray-900 mb-1.5">First Name</label>
-          <input
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            placeholder="First Name"
-            className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
-          />
-        </div>
+        {/* Inputs Grid Container */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-        {/* Email Address */}
-        <div>
-          <label className="block text-xs font-bold text-gray-900 mb-1.5">Email Address</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email Address"
-            className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
-          />
-        </div>
+          {/* First Name */}
+          <div>
+            <label className="block text-xs font-bold text-gray-900 mb-1.5">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              placeholder="First Name"
+              className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
+            />
+          </div>
 
-        {/* Select Cuisine */}
-        <div>
-          <label className="block text-xs font-bold text-gray-900 mb-1.5">Select Cuisine</label>
-          <input
-            type="text"
-            name="cuisine"
-            value={formData.cuisine}
-            onChange={handleChange}
-            placeholder="Select Cuisine"
-            className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
-          />
-        </div>
+          {/* Email Address */}
+          <div>
+            <label className="block text-xs font-bold text-gray-900 mb-1.5">Email Address</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email Address"
+              className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
+            />
+          </div>
 
-        {/* Phone Number */}
-        <div>
-          <label className="block text-xs font-bold text-gray-900 mb-1.5">Phone Number</label>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="Phone Number"
-            className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
-          />
-        </div>
+          {/* Select Cuisine */}
+          <div>
+            <label className="block text-xs font-bold text-gray-900 mb-1.5">Select Cuisine</label>
+            <input
+              type="text"
+              name="cuisine"
+              value={formData.cuisine}
+              onChange={handleChange}
+              placeholder="Select Cuisine"
+              className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
+            />
+          </div>
 
-        {/* Password */}
-        <div>
-          <label className="block text-xs font-bold text-gray-900 mb-1.5">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Password"
-            className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
-          />
-        </div>
+          {/* Phone Number */}
+          <div>
+            <label className="block text-xs font-bold text-gray-900 mb-1.5">Phone Number</label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone Number"
+              className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
+            />
+          </div>
 
-        {/* Confirm Password */}
-        <div>
-          <label className="block text-xs font-bold text-gray-900 mb-1.5">Confirm Password</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            placeholder="Confirm Password"
-            className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
-          />
-        </div>
+          {/* Password */}
+          <div>
+            <label className="block text-xs font-bold text-gray-900 mb-1.5">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+              className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
+            />
+          </div>
 
-        {/* Salary */}
-        <div>
-          <label className="block text-xs font-bold text-gray-900 mb-1.5">Salary</label>
-          <input
-            type="text"
-            name="salary"
-            value={formData.salary}
-            onChange={handleChange}
-            placeholder="Salary"
-            className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
-          />
+          {/* Confirm Password */}
+          <div>
+            <label className="block text-xs font-bold text-gray-900 mb-1.5">Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm Password"
+              className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
+            />
+          </div>
+
+          {/* Salary (Full width on desktop or grid) */}
+          <div className="md:col-span-2">
+            <label className="block text-xs font-bold text-gray-900 mb-1.5">Salary</label>
+            <input
+              type="text"
+              name="salary"
+              value={formData.salary}
+              onChange={handleChange}
+              placeholder="Salary"
+              className="w-full px-4 py-3 rounded-full border border-[#FA6200] text-sm focus:outline-none focus:ring-2 focus:ring-[#FA6200]/30 text-gray-800 bg-white"
+            />
+          </div>
+
         </div>
 
         {/* Save Details Solid Orange Button */}
         <div className="pt-3">
           <button
             type="submit"
-            className="w-full py-3 rounded-full bg-[#FA6200] text-white font-semibold text-sm hover:bg-orange-600 transition-all cursor-pointer shadow-md text-center"
+            className="w-full py-3.5 rounded-full bg-[#FA6200] text-white font-semibold text-sm hover:bg-orange-600 transition-all cursor-pointer shadow-md text-center"
           >
             Save Details
           </button>

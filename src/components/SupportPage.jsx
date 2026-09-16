@@ -33,7 +33,7 @@ export default function SupportPage({ onBack }) {
   }
 
   return (
-    <div className="relative w-full max-w-md bg-white min-h-screen sm:min-h-[750px] sm:h-[812px] sm:rounded-[36px] sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden">
+    <div className="relative w-full max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl bg-white min-h-screen sm:min-h-0 sm:max-h-[90vh] sm:rounded-3xl sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden transition-all duration-300">
       
       {/* Toast Notification */}
       {toast.show && (
@@ -44,7 +44,7 @@ export default function SupportPage({ onBack }) {
       )}
 
       {/* Top Header */}
-      <div className="px-5 pt-5 pb-3 flex items-center gap-3">
+      <div className="px-5 pt-5 pb-3 md:px-8 md:pt-6 flex items-center gap-3 border-b border-gray-100/80">
         <button
           onClick={onBack}
           className="p-1 rounded-full text-gray-800 hover:bg-gray-100 transition-colors cursor-pointer"
@@ -56,7 +56,7 @@ export default function SupportPage({ onBack }) {
       </div>
 
       {/* Content Body */}
-      <form onSubmit={handleSubmit} className="px-5 py-4 space-y-5 overflow-y-auto no-scrollbar flex-1 pb-8">
+      <form onSubmit={handleSubmit} className="px-5 py-5 md:px-8 md:py-6 space-y-5 overflow-y-auto no-scrollbar flex-1 pb-8">
         
         {/* Type Support Dropdown Field */}
         <div className="relative">
@@ -76,11 +76,11 @@ export default function SupportPage({ onBack }) {
             />
           </div>
 
-          {/* Floating Dropdown Options Menu (Matching exact screenshot design) */}
+          {/* Floating Dropdown Options Menu */}
           {isDropdownOpen && (
             <div className="absolute left-0 right-0 top-full mt-2 bg-[#EFEFEF] rounded-2xl shadow-xl border border-gray-200/80 overflow-hidden z-20 py-1 animate-in fade-in duration-150">
               {supportOptions.map((opt, index) => {
-                const isSelected = opt === supportType && index === 1 // matches screenshot highlighted 2nd option
+                const isSelected = opt === supportType && index === 1
                 return (
                   <div
                     key={index}
@@ -105,7 +105,7 @@ export default function SupportPage({ onBack }) {
             Text
           </label>
           <textarea
-            rows={4}
+            rows={5}
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Enter text"

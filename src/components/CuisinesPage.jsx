@@ -48,7 +48,7 @@ export default function CuisinesPage({ onBack }) {
   )
 
   return (
-    <div className="relative w-full max-w-md bg-white min-h-screen sm:min-h-[750px] sm:h-[812px] sm:rounded-[36px] sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden">
+    <div className="relative w-full max-w-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl bg-white min-h-screen sm:min-h-0 sm:max-h-[90vh] sm:rounded-3xl sm:shadow-2xl sm:border sm:border-gray-200 flex flex-col font-sans overflow-hidden transition-all duration-300">
       
       {/* Toast Notification */}
       {toast.show && (
@@ -59,7 +59,7 @@ export default function CuisinesPage({ onBack }) {
       )}
 
       {/* Top Header */}
-      <div className="px-5 pt-5 pb-3 flex items-center justify-between">
+      <div className="px-5 pt-5 pb-3 md:px-8 md:pt-6 flex items-center justify-between border-b border-gray-100/80">
         <div className="flex items-center gap-3">
           <button
             onClick={onBack}
@@ -82,7 +82,7 @@ export default function CuisinesPage({ onBack }) {
       </div>
 
       {/* Content Area */}
-      <div className="px-5 pb-8 space-y-4 overflow-y-auto no-scrollbar flex-1">
+      <div className="px-5 py-5 md:px-8 md:py-6 space-y-4 overflow-y-auto no-scrollbar flex-1">
         
         {/* Search Bar */}
         <div className="bg-[#F1F1F1] rounded-2xl px-4 py-3 flex items-center gap-2.5">
@@ -103,14 +103,14 @@ export default function CuisinesPage({ onBack }) {
         </div>
 
         {/* Cuisines Rows List */}
-        <div className="flex flex-col">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
           {filteredCuisines.length > 0 ? (
             filteredCuisines.map((cuisine) => (
               <div
                 key={cuisine.id}
-                className="px-4 py-3.5 flex items-center justify-between border-b border-gray-300/80 last:border-b-0 group hover:bg-gray-50/50 transition-colors"
+                className="px-4 py-3.5 flex items-center justify-between border-b border-gray-200/80 md:border md:rounded-xl group hover:bg-gray-50/80 transition-colors bg-white"
               >
-                <span className="text-sm font-medium text-gray-500">{cuisine.name}</span>
+                <span className="text-sm font-medium text-gray-700">{cuisine.name}</span>
                 <div className="flex items-center gap-3">
                   {/* Edit Button */}
                   <button
@@ -133,7 +133,7 @@ export default function CuisinesPage({ onBack }) {
               </div>
             ))
           ) : (
-            <div className="py-8 text-center text-sm text-gray-400">
+            <div className="py-8 text-center text-sm text-gray-400 md:col-span-2">
               No cuisines found matching "{searchTerm}"
             </div>
           )}
