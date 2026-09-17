@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ChevronLeft, CheckCircle } from 'lucide-react'
 
 // Importing dropdown triangle asset
-import dropdownArrowIcon from '../assets/Vector.svg'
+import dropdownArrowIcon from '../../assets/Vector.svg'
 
 const supportOptions = [
   'Lorem ipsum dolor sit amet, consectetur',

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ChevronLeft, CheckCircle } from 'lucide-react'
 
 // Importing avatar pen badge asset
-import editBadgeIcon from '../assets/Frame 427319775.svg'
+import editBadgeIcon from '../../assets/Frame 427319775.svg'
 
 export default function CreateChefPage({ onBack, onSave }) {
   const [formData, setFormData] = useState({

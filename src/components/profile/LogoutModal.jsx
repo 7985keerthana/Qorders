@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Importing logout icon asset
-import logoutIcon from '../assets/logout.svg'
+import logoutIcon from '../../assets/logout.svg'
 
 export default function LogoutModal({ onClose, onConfirm }) {
   return (

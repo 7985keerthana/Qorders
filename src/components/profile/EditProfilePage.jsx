@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { ChevronLeft, CheckCircle } from 'lucide-react'
 
 // Importing assets
-import editBadgeIcon from '../assets/Frame 427319775.svg'
-import dropdownArrowIcon from '../assets/Vector.svg'
+import editBadgeIcon from '../../assets/Frame 427319775.svg'
+import dropdownArrowIcon from '../../assets/Vector.svg'
 
 export default function EditProfilePage({ onBack }) {
   const [formData, setFormData] = useState({

@@ -15,15 +15,15 @@ import SettingPage from './SettingPage'
 import ChangePasswordPage from './ChangePasswordPage'
 
 // Importing icons from assets
-import nameIcon from '../assets/Name.svg'
-import badgePercentIcon from '../assets/badge-percent 1.svg'
-import hatChefIcon from '../assets/hat-chef 1.svg'
-import inventoryAltIcon from '../assets/inventory-alt 1.svg'
-import logoutIcon from '../assets/logout.svg'
-import settingsIcon from '../assets/settings 1.svg'
-import starIcon from '../assets/star.svg'
-import termsCheckIcon from '../assets/terms-check 1.svg'
-import userHeadsetIcon from '../assets/user-headset 1.svg'
+import nameIcon from '../../assets/Name.svg'
+import badgePercentIcon from '../../assets/badge-percent 1.svg'
+import hatChefIcon from '../../assets/hat-chef 1.svg'
+import inventoryAltIcon from '../../assets/inventory-alt 1.svg'
+import logoutIcon from '../../assets/logout.svg'
+import settingsIcon from '../../assets/settings 1.svg'
+import starIcon from '../../assets/star.svg'
+import termsCheckIcon from '../../assets/terms-check 1.svg'
+import userHeadsetIcon from '../../assets/user-headset 1.svg'
 
 const accountsList = [
   { id: 1, title: 'Personal Info', icon: nameIcon },
@@ -47,7 +47,7 @@ const moreList = [
   { id: 8, title: 'Log out', icon: logoutIcon },
 ]
 
-export default function ProfilePage() {
+export default function ProfilePage({ onLogout, onBack }) {
   const [currentView, setCurrentView] = useState('main') // 'main' | 'edit' | 'cuisines' | 'chefs' | 'createChef' | 'orderHistory' | 'terms' | 'privacy' | 'support' | 'setting' | 'changePassword'
   const [showReviewModal, setShowReviewModal] = useState(false)
   const [showDiscountModal, setShowDiscountModal] = useState(false)
@@ -106,6 +106,9 @@ export default function ProfilePage() {
   const handleLogoutConfirm = () => {
     setShowLogoutModal(false)
     showToast('Logged out successfully!')
+    if (onLogout) {
+      setTimeout(() => onLogout(), 800)
+    }
   }
 
   return (
@@ -186,7 +189,11 @@ export default function ProfilePage() {
           
           {/* Top Header */}
           <div className="px-5 pt-5 pb-3 md:px-8 md:pt-6 flex items-center gap-3 border-b border-gray-100/80">
-            <button className="p-1 rounded-full text-gray-800 hover:bg-gray-100 transition-colors">
+            <button
+              onClick={onBack}
+              className="p-1 rounded-full text-gray-800 hover:bg-gray-100 transition-colors cursor-pointer"
+              aria-label="Back to Home"
+            >
               <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
             </button>
             <h1 className="text-xl font-bold text-gray-900 tracking-tight">Profile</h1>

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { ChevronLeft, Search, Plus, CheckCircle } from 'lucide-react'
 
 // Importing edit and trash icons from assets
-import editIcon from '../assets/edit 2.svg'
-import trashIcon from '../assets/trash 2.svg'
+import editIcon from '../../assets/edit 2.svg'
+import trashIcon from '../../assets/trash 2.svg'
 
 const initialChefs = [
   { id: 1, name: 'Manoj' },
